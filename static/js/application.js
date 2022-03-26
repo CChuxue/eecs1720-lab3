@@ -50,9 +50,9 @@ var obj = [];
 var inbox = new ReconnectingWebSocket(ws_scheme + location.host + "/receive");
 var outbox = new ReconnectingWebSocket(ws_scheme + location.host + "/submit");
 
-inbox.onmessage = function(message) {
+inbox.onmessage = async function(message) {
   // console.log("->:" + message.data);
-  data = JSON.parse(message.data);
+  var data = JSON.parse(await message.data.text());
   if (data.handle === "mouse") {
     users[data.from] = {x: data.x, y: data.y}
   }
