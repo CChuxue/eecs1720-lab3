@@ -34,6 +34,8 @@ session_opts = {'session.type': 'redis', 'session.url': REDIS_URL, 'session.data
 app = Flask(__name__)
 app.debug = 'DEBUG' in os.environ
 
+
+app.logger.info(u'connect to {}'.format(REDIS_URL))
 sockets = Sockets(app)
 redis = redis.from_url(REDIS_URL)
 
