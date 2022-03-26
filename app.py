@@ -18,7 +18,6 @@ from flask import Flask, render_template
 # REDIS_URL = os.environ['REDISTOGO_URL', 'redis://localhost:8000']
 REDIS_CHAN = 'chat'
 
-redis_url = os.getenv('REDISTOGO_URL', 'redis://localhost:6379')
 REDIS_URL = os.getenv('REDISTOGO_URL', None)
 session_opts = {'session.type': 'redis', 'session.url': REDIS_URL, 'session.data_dir': './cache/',
                 'session.key': 'appname', 'session.auto': True, }
